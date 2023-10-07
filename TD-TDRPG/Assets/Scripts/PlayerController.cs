@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
-    bool canMove = true;
+    public bool canMove = true;
     public Attack attack;
 
     Vector2 movementInput;
