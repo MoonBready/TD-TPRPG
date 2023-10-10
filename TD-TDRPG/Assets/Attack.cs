@@ -12,6 +12,7 @@ public class Attack : MonoBehaviour
     {
         attackCollider = GetComponent<Collider2D>();
         rightAttackOffset = transform.position;
+        attackCollider.enabled = false;
     }
 
 
@@ -20,6 +21,11 @@ public class Attack : MonoBehaviour
         print("right");
         attackCollider.enabled = true;
         transform.position = rightAttackOffset;
+        
+        //if (StopAttack())
+        {
+            
+        } 
     }
 
     public void AttackLeft()
@@ -27,6 +33,7 @@ public class Attack : MonoBehaviour
         print("left");
         attackCollider.enabled = true;
         transform.position = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
+        StopAttack();
     }
 
     public void StopAttack()
