@@ -4,40 +4,51 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public Collider2D attackCollider;
+
+    public float damage = 3;
+
     Vector2 rightAttackOffset;
 
-    Collider2D attackCollider;
 
     private void Start()
     {
-        attackCollider = GetComponent<Collider2D>();
-        rightAttackOffset = transform.position;
-        attackCollider.enabled = false;
+        rightAttackOffset = transform.localPosition;
     }
 
 
     public void AttackRight()
     {
-        print("right");
         attackCollider.enabled = true;
-        transform.position = rightAttackOffset;
+        transform.localPosition = rightAttackOffset;
         
-        //if (StopAttack())
+        /*if (StopAttack())
         {
             
-        } 
+        }*/
     }
 
     public void AttackLeft()
     {
-        print("left");
         attackCollider.enabled = true;
-        transform.position = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
-        StopAttack();
+        transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
     }
 
     public void StopAttack()
     {
         attackCollider.enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Enemy")
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            if(enemy != null)
+            {
+                enemy.Health -= damage;
+            }
+        }
     }
 }
