@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 143943331}
   - component: {fileID: 143943333}
   - component: {fileID: 143943332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28821,7 +28821,7 @@ GameObject:
   - component: {fileID: 951209945}
   - component: {fileID: 951209947}
   - component: {fileID: 951209946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41398,7 +41398,7 @@ GameObject:
   - component: {fileID: 1037900121}
   - component: {fileID: 1037900120}
   - component: {fileID: 1037900119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44628,7 +44628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1828948156}
   - component: {fileID: 1828948155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45143,6 +45143,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2307711858109793193, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307711858109793193, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307711858109793193, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2350487299338515171, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
       propertyPath: m_Name
       value: Player
@@ -45151,7 +45163,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 563589379, guid: a7daaef2c5ea5544cb8019f707291e9a, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1083723023177531427, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
 --- !u!1001 &6264287379482774176
 PrefabInstance:
@@ -45160,6 +45173,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 419100148525702841, guid: cd5467ae02dfeff4db3445ac68bedb09, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2358459162172432268, guid: cd5467ae02dfeff4db3445ac68bedb09, type: 3}
       propertyPath: m_RootOrder
       value: 4
