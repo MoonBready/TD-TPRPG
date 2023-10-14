@@ -13,10 +13,12 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public float moveSpeed;
-    public Player player;
+    public float speed;
+    public GameObject player;
     private Vector3 directionToPlayer;
     private Vector3 localScale;
+    private float distance;
+    public float distanceBetween;
     
 
     public float Health
@@ -42,9 +44,6 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType(typeof(Player)) as Player;
-        moveSpeed = 3f;
-        localScale = transform.localScale;
     }
 
     public void Defeated()
@@ -62,31 +61,36 @@ public class Enemy : MonoBehaviour
         OnCollisionEnter2D && GetComponent<Collider>
     }*/
 
-    public void FixedUpdate() 
-    {
-        MoveEnemy();
-    }
 
     public void LateUpdate()
     {
-        if (rb.velocity.x > 0)
+        /*if (rb.velocity.x > 0)
         {
             transform.localScale = new Vector3(localScale.x, localScale.y, localScale.z);
         }
         else if (rb.velocity.x < 0)
         {
             transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
-        }    
+        } */   
     }
 
     public void MoveEnemy()
     {
-        directionToPlayer = (player.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed;
+        /*directionToPlayer = (player.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * moveSpeed;*/
+        
     }
 
-    public void Update()
+    void Update()
     {
-        
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        if (distance < distanceBetween)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        }
     }
 }
