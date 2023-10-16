@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
-    public float Health
+    public void TakeDamage(float damage)
     {
-        set
+        health -= damage;
+
+        if (health <= 0)
         {
-            health = value;
-            if (health <= 0)
-            {
-                RemoveEnemy();
-            }
-        }
-        get
-        {
-            return health;
+            RemoveEnemy();
         }
     }
 
@@ -24,6 +18,20 @@ public class Destructible : MonoBehaviour
 
     public void RemoveEnemy()
     {
+        Debug.Log("Removing Enemy" + gameObject.name);
         Destroy(gameObject);
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider == AttackHitbox)
+        {
+            Debug.Log("Collision with AttackHitbox. Destroying the game object: " + gameObject.name);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Collision with something else. Collision object: " + collision.collider.gameObject.name);
+        }
+    }*/
 }

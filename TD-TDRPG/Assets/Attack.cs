@@ -39,15 +39,20 @@ public class Attack : MonoBehaviour
         attackCollider.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D attackCollider)
     {
-        if(other.tag == "Enemy")
-        {
-            Enemy enemy = other.GetComponent<Enemy>();
+        Debug.Log("Collision Detected with: " + attackCollider.gameObject.name);
 
-            if(enemy != null)
+        if(attackCollider.tag == "Enemy")
+        {
+            Enemy enemy = attackCollider.GetComponent<Enemy>();
+            Destructible destructible = attackCollider.GetComponent<Destructible>();
+
+            if(enemy && destructible != null)
             {
-                enemy.Health -= damage;
+                enemy.TakeDamage(damage);
+                destructible.TakeDamage(damage);
+                Debug.Log("Damage Applied to enemy: " + enemy.gameObject.name + "Current health" +  enemy.health);
             }
         }
     }

@@ -19,25 +19,21 @@ public class Enemy : MonoBehaviour
     private Vector3 localScale;
     private float distance;
     public float distanceBetween;
-    
 
-    public float Health
+
+    public float health { get; private set; } = 1f;
+
+    public void TakeDamage(float damage)
     {
-        set
+        health -= damage;
+
+        if (health <= 0f)
         {
-            health = value;
-            if(health <= 0)
-            {
-                Defeated();
-            }
-        }
-        get
-        {
-            return health;
+            Defeated();
+            RemoveEnemy();
         }
     }
-
-    public float health = 1;
+    
 
 
     public void Start()

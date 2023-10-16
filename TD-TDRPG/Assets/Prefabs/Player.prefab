@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3058865926195169608}
   - component: {fileID: 27859825014155162}
-  - component: {fileID: 104060800111022473}
+  - component: {fileID: 5980486704580976812}
   m_Layer: 0
   m_Name: AttackHitbox
   m_TagString: Untagged
@@ -59,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.3}
   m_EdgeRadius: 0
---- !u!114 &104060800111022473
+--- !u!114 &5980486704580976812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   canMove: 1
-  attack: {fileID: 104060800111022473}
+  attack: {fileID: 5980486704580976812}
 --- !u!50 &6333545501917465386
 Rigidbody2D:
   serializedVersion: 4
@@ -260,7 +260,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0050396193, y: -0.16314256}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.51, y: 0.3}
     oldSize: {x: 0.48, y: 0.48}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
