@@ -21,10 +21,15 @@ public class Enemy : MonoBehaviour
     public float distanceBetween;
 
 
-    public float health { get; private set; } = 1f;
+    public float health = 1f;
+
+    public float damage = 5f;
+    public PlayerHealth playerHealth;
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("Enemy taking damage: " + damage);
+
         health -= damage;
 
         if (health <= 0f)
@@ -34,6 +39,13 @@ public class Enemy : MonoBehaviour
         }
     }
     
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerHealth.TakeDamage(1);
+        }
+    }
 
 
     public void Start()

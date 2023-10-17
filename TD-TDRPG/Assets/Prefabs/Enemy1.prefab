@@ -124,6 +124,9 @@ MonoBehaviour:
   speed: 0.3
   player: {fileID: 2350487299338515171, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
   distanceBetween: 2
+  health: 1
+  damage: 5
+  playerHealth: {fileID: 1697774664779950946, guid: c95af94a538ca6e49bd04a0a5690c793, type: 3}
 --- !u!95 &6841246022399764557
 Animator:
   serializedVersion: 5

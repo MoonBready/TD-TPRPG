@@ -7,19 +7,10 @@ public class UITimer : MonoBehaviour
 {
     private TextMeshProUGUI tmproText;
 
-    private void Awake()
+    private void Start()
     {
         tmproText = GetComponent<TextMeshProUGUI>();
-    }
-
-    private void Update()
-    {
-        GameManager.Instance.OnTimerChanged += HandleOnTimerChanged;
-        tmproText.text = GameManager.Instance.Timer.ToString("F2");
-    }
-
-    private void HandleOnTimerChanged(float time)
-    {
-        tmproText.text = time.ToString("F2");
+        float totalGameTime = GameManager.Instance.TotalGameTime;
+        tmproText.text = ("Total Time: " + totalGameTime.ToString ("F2"));
     }
 }

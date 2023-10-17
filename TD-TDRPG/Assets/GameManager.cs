@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
-    public float Timer { get; private set; }
+    public float Timer
+    {
+        get { return timer; }
+    }
 
-    public static GameManager Instance { get; private set; }
+    private float timer;
 
-    public event Action<float> OnTimerChanged;
+    public static GameManager Instance;
+
+    public event System.Action<float> OnTimerChanged;
+
+    private float totalGameTime;
+
+    public float TotalGameTime
+    {
+        get { return totalGameTime; }
+    }
 
     private int currentLevelIndex;
     private bool isTimerOn;
@@ -18,38 +31,25 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-            Destroy(gameObject);
-        else
-        {
-            Timer = 0;
+        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+        else
+        { 
+            Destroy(gameObject);
 
-            RestartGame();
+            //RestartGame();
         }
     }
 
     private void Update()
     {
-        CountTime();
-    }
+        //CountTime();
+        timer += Time.deltaTime;
 
-    public void CountTime()
-    {
-        if (currentLevelIndex < 1 || currentLevelIndex >= 4)
-        {
-            isTimerOn = false;
-            currentTimer = Timer;
-        }
-        else
-        {
-            isTimerOn = true;
-            if (isTimerOn)
-                Timer += Time.deltaTime;
+        totalGameTime += Time.deltaTime;
 
-            OnTimerChanged?.Invoke(Timer);
-        }
+        OnTimerChanged?.Invoke(timer);
     }
 
     public void MoveToNextLevel()
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Timer = 0;
+        timer = 0;
 
         SceneManager.LoadScene(currentLevelIndex);
     }

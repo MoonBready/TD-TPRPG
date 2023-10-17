@@ -39,20 +39,27 @@ public class Attack : MonoBehaviour
         attackCollider.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D attackCollider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision Detected with: " + attackCollider.gameObject.name);
+        Debug.Log("Collision Detected with: " + other.gameObject.name);
+        Debug.Log("Damage value: " + damage);
 
-        if(attackCollider.tag == "Enemy")
+        if (other.CompareTag ("Enemy"))
         {
-            Enemy enemy = attackCollider.GetComponent<Enemy>();
-            Destructible destructible = attackCollider.GetComponent<Destructible>();
+            Debug.Log("Enemy detected!");
 
-            if(enemy && destructible != null)
+            Enemy enemy = other.GetComponent<Enemy>();
+            Destructible destructible = other.GetComponent<Destructible>();
+
+            if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                destructible.TakeDamage(damage);
                 Debug.Log("Damage Applied to enemy: " + enemy.gameObject.name + "Current health" +  enemy.health);
+            }
+
+            if(destructible != null)
+            {
+                destructible.TakeDamage(damage);
             }
         }
     }
