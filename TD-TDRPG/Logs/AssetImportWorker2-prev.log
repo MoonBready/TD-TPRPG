@@ -719,3 +719,21 @@ Received Import Request.
   path: Assets/Scenes/EndGame.unity
   artifactKey: Guid(643c0ca79648c6a45a57cfd1b1caa8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/EndGame.unity using Guid(643c0ca79648c6a45a57cfd1b1caa8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '810a9c6ca87cc0082210735e0acb9e42') in 0.006868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35382.500415 seconds.
+  path: Assets/Prefabs/Chest.prefab
+  artifactKey: Guid(420842348baaf2c4187f2d105324c86c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Chest.prefab using Guid(420842348baaf2c4187f2d105324c86c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5749af0432706157139e941eb1c141b') in 0.300609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.480475 seconds.
+  path: Assets/Scenes/EndGame.unity
+  artifactKey: Guid(643c0ca79648c6a45a57cfd1b1caa8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/EndGame.unity using Guid(643c0ca79648c6a45a57cfd1b1caa8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62e0fdc6517af0f8c102b7621aff468') in 0.018255 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 90.102131 seconds.
+  path: Assets/Scripts/UITimer.cs
+  artifactKey: Guid(2e39edace7b6e724da61e6ffb131be1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UITimer.cs using Guid(2e39edace7b6e724da61e6ffb131be1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60224069fbcdc0b9229e5267c67ca0e8') in 0.017588 seconds 
